@@ -27,7 +27,7 @@ public class ObjectSpawner : MonoBehaviour
 
     }
 
-    IEnumerator SpawnObjects()
+    private IEnumerator SpawnObjects()
     {
         yield return new WaitForSeconds(spawnInterval);
 

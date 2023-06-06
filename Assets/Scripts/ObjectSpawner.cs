@@ -1,18 +1,14 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectSpawner : MonoBehaviour
 {
-    private float _move;
     private float _spawnY;
 
-    public GameObject woodPrefab;
-    public GameObject dynamicGameElements;
+    public GameObject[] Prefabs;
     public float spawnInterval;
     public float spawnXRange = 10;
-    public float speed;
-
 
     void Start()
     {
@@ -32,9 +28,9 @@ public class ObjectSpawner : MonoBehaviour
 
         while (true)
         {
-            float spawnX = Random.Range(-spawnXRange, spawnXRange);
+            float spawnX = UnityEngine.Random.Range(-spawnXRange, spawnXRange);
             Vector2 spawnPosition = new Vector2(spawnX, _spawnY);
-            Instantiate(woodPrefab, spawnPosition, Quaternion.identity);
+            Instantiate(Prefabs[UnityEngine.Random.Range(0, Prefabs.Length)], spawnPosition, Quaternion.identity);
             yield return new WaitForSeconds(spawnInterval);
         }
     }

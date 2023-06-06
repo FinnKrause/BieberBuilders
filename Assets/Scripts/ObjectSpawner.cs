@@ -5,7 +5,6 @@ using UnityEngine;
 public class ObjectSpawner : MonoBehaviour
 {
     private float _move;
-    private int _count = 0;
     private float _spawnY;
 
     public GameObject woodPrefab;

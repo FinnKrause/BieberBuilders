@@ -30,7 +30,8 @@ public class ObjectSpawner : MonoBehaviour
         {
             float spawnX = UnityEngine.Random.Range(-spawnXRange, spawnXRange);
             Vector2 spawnPosition = new Vector2(spawnX, _spawnY);
-            Instantiate(Prefabs[UnityEngine.Random.Range(0, Prefabs.Length)], spawnPosition, Quaternion.identity);
+            GameObject rbdObj = Prefabs[UnityEngine.Random.Range(0, Prefabs.Length)];
+            Instantiate(rbdObj, spawnPosition, Quaternion.identity);
             yield return new WaitForSeconds(spawnInterval);
         }
     }

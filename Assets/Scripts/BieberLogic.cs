@@ -7,9 +7,12 @@ public class BieberLogic : MonoBehaviour
 {
     private Rigidbody2D _rb;
     public float movementSpeed;
+    public float movementRangeLeft;
+    public float movementRangeRight;
     private UIBar _healthBar;
     private UIBar _energyBar;
     private UIBar _woodPlanksBar;
+
 
     void Start()
     {
@@ -24,8 +27,19 @@ public class BieberLogic : MonoBehaviour
     {
         float _movementDirectionX = Input.GetAxis("Horizontal");
         // float _movementDirectionY = Input.GetAxis("Vertical");
-        _rb.velocity = new Vector2(_movementDirectionX * movementSpeed, _rb.velocity.y); //_movementDirectionY * movementSpeed
+        UnityEngine.Debug.Log(transform.position.x);//Screen 909
+        if(transform.position.x < movementRangeRight && transform.position.x > -movementRangeLeft) {
+        _rb.velocity = new Vector2(_movementDirectionX * movementSpeed, _rb.velocity.y);
+        } else if(transform.position.x >= movementRangeRight && _movementDirectionX < 0) {
+            _rb.velocity = new Vector2(_movementDirectionX * movementSpeed, _rb.velocity.y);
+        } else if(transform.position.x <= -movementRangeLeft && _movementDirectionX > 0){
+            _rb.velocity = new Vector2(_movementDirectionX * movementSpeed, _rb.velocity.y);
+        } else {
+            _rb.velocity = new Vector2(0,0);
+        }
+
     }
+
 
     void OnCollisionEnter2D(Collision2D other)
     {

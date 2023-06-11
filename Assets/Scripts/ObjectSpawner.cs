@@ -17,11 +17,6 @@ public class ObjectSpawner : MonoBehaviour
         StartCoroutine(SpawnObjects());
     }
 
-    void Update()
-    {
-
-    }
-
     private IEnumerator SpawnObjects()
     {
         yield return new WaitForSeconds(spawnInterval);

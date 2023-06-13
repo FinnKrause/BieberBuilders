@@ -23,6 +23,11 @@ public class UIBar : MonoBehaviour
 
     }
 
+    public float getCurrentValue()
+    {
+        return _currentValue;
+    }
+
     public void subtract(float damage)
     {
         _currentValue = Mathf.Clamp(_currentValue - damage, minValue, maxValue);

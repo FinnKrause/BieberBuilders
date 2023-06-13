@@ -27,15 +27,26 @@ public class BieberLogic : MonoBehaviour
     {
         float _movementDirectionX = Input.GetAxis("Horizontal");
         // float _movementDirectionY = Input.GetAxis("Vertical");
+
+        //movement Speed in Abhängigkeit von der Energy
+        movementSpeed = _energyBar.getCurrentValue() / 5;
+
         UnityEngine.Debug.Log(transform.position.x);//Screen 909
-        if(transform.position.x < movementRangeRight && transform.position.x > -movementRangeLeft) {
-        _rb.velocity = new Vector2(_movementDirectionX * movementSpeed, _rb.velocity.y);
-        } else if(transform.position.x >= movementRangeRight && _movementDirectionX < 0) {
+        if (transform.position.x < movementRangeRight && transform.position.x > -movementRangeLeft)
+        {
             _rb.velocity = new Vector2(_movementDirectionX * movementSpeed, _rb.velocity.y);
-        } else if(transform.position.x <= -movementRangeLeft && _movementDirectionX > 0){
+        }
+        else if (transform.position.x >= movementRangeRight && _movementDirectionX < 0)
+        {
             _rb.velocity = new Vector2(_movementDirectionX * movementSpeed, _rb.velocity.y);
-        } else {
-            _rb.velocity = new Vector2(0,0);
+        }
+        else if (transform.position.x <= -movementRangeLeft && _movementDirectionX > 0)
+        {
+            _rb.velocity = new Vector2(_movementDirectionX * movementSpeed, _rb.velocity.y);
+        }
+        else
+        {
+            _rb.velocity = new Vector2(0, 0);
         }
 
     }
@@ -50,7 +61,7 @@ public class BieberLogic : MonoBehaviour
             case "Wood(Clone)":
                 _woodPlanksBar.add(1f); break;
             case "Leaf(Clone)":
-                _energyBar.add(5f); break;
+                _energyBar.add(20f); break;
             case "bomb(Clone)":
                 _healthBar.subtract(1f); break;
             default:

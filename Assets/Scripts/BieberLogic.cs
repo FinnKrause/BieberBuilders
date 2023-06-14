@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BieberLogic : MonoBehaviour
 {
     private Rigidbody2D _rb;
-    public float movementSpeed;
+    public float movementSpeedAmplifier;
     public float movementRangeLeft;
     public float movementRangeRight;
     private UIBar _healthBar;
@@ -29,7 +29,7 @@ public class BieberLogic : MonoBehaviour
         // float _movementDirectionY = Input.GetAxis("Vertical");
 
         //movement Speed in Abhängigkeit von der Energy
-        movementSpeed = _energyBar.getCurrentValue() / 5;
+        float movementSpeed = _energyBar.getCurrentValue() / 5 * movementSpeedAmplifier;
 
         UnityEngine.Debug.Log(transform.position.x);//Screen 909
         if (transform.position.x < movementRangeRight && transform.position.x > -movementRangeLeft)

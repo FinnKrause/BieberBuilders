@@ -425,6 +425,10 @@ PrefabInstance:
       propertyPath: movementRangeRight
       value: 6.1
       objectReference: {fileID: 0}
+    - target: {fileID: 4778015763217428671, guid: b50a70398ab72074e8a7088cd11ee215, type: 3}
+      propertyPath: movementSpeedAmplifier
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b50a70398ab72074e8a7088cd11ee215, type: 3}
 --- !u!1 &195125675
@@ -1782,6 +1786,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1676916689}
   - component: {fileID: 1676916690}
+  - component: {fileID: 1676916691}
   m_Layer: 0
   m_Name: GameLogic
   m_TagString: Untagged
@@ -1820,8 +1825,21 @@ MonoBehaviour:
   - {fileID: 1952426920319878059, guid: 075b5c531b0ffdf4bb5a99efa785cc11, type: 3}
   - {fileID: 3072365866018847433, guid: 43908450b8eb0fa428c38b412e0557c1, type: 3}
   - {fileID: 7918699883191896643, guid: a49798a6679a4a943aca2efd394c43a1, type: 3}
-  spawnInterval: 0.5
+  spawnInterval: 0.2
   spawnXRange: 10
+--- !u!114 &1676916691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676916687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69af31210ec63c94789c70e1ba708be3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IntervalInSeconds: 0.5
 --- !u!1 &1692440405
 GameObject:
   m_ObjectHideFlags: 0
@@ -2006,7 +2024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aaa3e19b03f45e478c342f81fcf6768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startValue: 0
+  startValue: 50
   maxValue: 100
   minValue: 0
   text: {fileID: 732540870}

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BieberLogic : MonoBehaviour
 {
@@ -48,6 +49,9 @@ public class BieberLogic : MonoBehaviour
         {
             _rb.velocity = new Vector2(0, 0);
         }
+        // if(_healthBar.getCurrentValue() == 0) {
+        //     SceneManager.LoadScene(sceneName:"Put the name of the scene here");
+        // }
 
     }
 

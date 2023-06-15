@@ -9,12 +9,12 @@ public class ObjectSpawner : MonoBehaviour
 
     public GameObject[] Prefabs;
     public float spawnInterval;
-    public float spawnXRange = 10;
+    public float spawnXRange = 6;
 
     void Start()
     {
-        _spawnY = Camera.main.ScreenToWorldPoint(new Vector3(0f, Screen.height, 0f)).y;
-        spawnXRange = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0f, 0f)).x;
+        _spawnY = Camera.main.ScreenToWorldPoint(new Vector3(0f, Screen.height+20, 0f)).y;
+        //spawnXRange = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0f, 0f)).x;
         StartCoroutine(SpawnObjects());
     }
 

@@ -429,6 +429,10 @@ PrefabInstance:
       propertyPath: movementSpeedAmplifier
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7168843046136072598, guid: b50a70398ab72074e8a7088cd11ee215, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b50a70398ab72074e8a7088cd11ee215, type: 3}
 --- !u!1 &195125675
@@ -1825,8 +1829,8 @@ MonoBehaviour:
   - {fileID: 1952426920319878059, guid: 075b5c531b0ffdf4bb5a99efa785cc11, type: 3}
   - {fileID: 3072365866018847433, guid: 43908450b8eb0fa428c38b412e0557c1, type: 3}
   - {fileID: 7918699883191896643, guid: a49798a6679a4a943aca2efd394c43a1, type: 3}
-  spawnInterval: 0.2
-  spawnXRange: 10
+  spawnInterval: 0.5
+  spawnXRange: 6
 --- !u!114 &1676916691
 MonoBehaviour:
   m_ObjectHideFlags: 0

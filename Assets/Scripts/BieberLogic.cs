@@ -52,7 +52,7 @@ public class BieberLogic : MonoBehaviour
         if(_healthBar.getCurrentValue() == 0) {
             SceneManager.LoadScene(sceneName:"Death");
         }
-        if(_woodPlanksBar.getCurrentValue() == 20) {
+        if(_woodPlanksBar.getCurrentValue() == _woodPlanksBar.maxValue) {
             SceneManager.LoadScene(sceneName:"Main 2");
         }
     }

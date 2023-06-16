@@ -18,7 +18,7 @@ public class DEADScreenLogic : MonoBehaviour
         _retryButton.onClick.AddListener(delegate ()
         {
             UnityEngine.Debug.Log("Retry Button pressed!");
-            SceneManager.LoadScene(sceneName: "Main");
+            SceneManager.LoadScene(sceneName: "Level 1");
         });
 
         _quitButton.onClick.AddListener(() =>

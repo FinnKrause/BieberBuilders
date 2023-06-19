@@ -1832,6 +1832,9 @@ MonoBehaviour:
   - {fileID: 7918699883191896643, guid: a49798a6679a4a943aca2efd394c43a1, type: 3}
   spawnInterval: 0.5
   spawnXRange: 6
+  mehrBombe: 10
+  mehrBlatt: 30
+  mehrHolz: 20
 --- !u!114 &1676916691
 MonoBehaviour:
   m_ObjectHideFlags: 0

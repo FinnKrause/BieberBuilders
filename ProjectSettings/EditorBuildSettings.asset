@@ -12,12 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 1.unity
     guid: 93b296704550a8044a0b66901d7f00d8
   - enabled: 1
-    path: Assets/Scenes/Death.unity
-    guid: 4c0ed6bd8dfd01e4293e78be0605958a
-  - enabled: 1
     path: Assets/Scenes/Level 2.unity
     guid: a039e634354cdcc429f1791e66e42764
   - enabled: 1
     path: Assets/Scenes/Level 3.unity
     guid: 918a46ee274c6f046ab34bfccaea2b8e
+  - enabled: 1
+    path: Assets/Scenes/Death.unity
+    guid: 4c0ed6bd8dfd01e4293e78be0605958a
+  - enabled: 1
+    path: Assets/Scenes/Startscene.unity
+    guid: 612811fded2751141b6853b961488599
   m_configObjects: {}

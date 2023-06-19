@@ -1,6 +1,5 @@
-using System.Collections.Generic;
-using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectSpawner : MonoBehaviour
@@ -8,61 +7,78 @@ public class ObjectSpawner : MonoBehaviour
     private float _spawnY;
 
     public GameObject[] Prefabs;
-    public float spawnInterval;
+    public float initialSpawnInterval = 1f;
     public float spawnXRange = 6;
+    public float bombFrequency;
+    public float leafFrequency;
+    public float woodFrequency;
+    private float spawnInterval;
 
-    private float zahl;
-    private int obi = 1;
-    private float bombe = 1;
-    private float blatt = 1;
-    private float holz = 1;
-    public float mehrBombe;
-    public float mehrBlatt;
-    public float mehrHolz;
+    private Dictionary<GameObject, float> spawnWeights = new Dictionary<GameObject, float>();
+
+    public GameObject bombPrefab;
+    public GameObject leafPrefab;
+    public GameObject woodPrefab;
 
     void Start()
     {
-        _spawnY = Camera.main.ScreenToWorldPoint(new Vector3(0f, Screen.height+20, 0f)).y;
-        //spawnXRange = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0f, 0f)).x;
+        _spawnY = Camera.main.ScreenToWorldPoint(new Vector3(0f, Screen.height + 20f, 0f)).y;
+        spawnInterval = initialSpawnInterval;
+        AdjustRelativeFrequencies(); //method sets weights
         StartCoroutine(SpawnObjects());
     }
 
     private IEnumerator SpawnObjects()
     {
-        yield return new WaitForSeconds(spawnInterval);
-
         while (true)
         {
-            float spawnX = UnityEngine.Random.Range(-spawnXRange, spawnXRange);
-            Vector2 spawnPosition = new Vector2(spawnX, _spawnY);
-            GameObject rbdObj = Prefabs[Objectwaehler()];
-            Instantiate(rbdObj, spawnPosition, Quaternion.identity);
             yield return new WaitForSeconds(spawnInterval);
+
+            float spawnX = Random.Range(-spawnXRange, spawnXRange);
+            Vector2 spawnPosition = new Vector2(spawnX, _spawnY);
+
+            GameObject selectedPrefab = SelectObject();
+            Instantiate(selectedPrefab, spawnPosition, Quaternion.identity);
         }
     }
 
-    private int Objectwaehler(){
-        zahl = UnityEngine.Random.Range(0,bombe+blatt+holz);
-        if(zahl<=bombe){
-            obi = 0;
-            blatt = blatt*mehrBlatt;
-            holz = holz*mehrHolz;
-            bombe = 1;
-            return obi;
-        }else if(zahl<=bombe+blatt){
-            obi = 1;
-            bombe = bombe*mehrBombe;
-            holz = holz*mehrHolz;
-            blatt = 1;
-            return obi;
-        }else if(zahl<=bombe+blatt+holz){
-            obi = 2;
-            bombe = bombe*mehrBombe;
-            blatt = blatt*mehrBlatt;
-            holz = 1;
-            return obi;
-    }
-return 1;
+    private GameObject SelectObject()
+    {
+        float totalWeight = 0f;
+        foreach (var pair in spawnWeights)
+        {
+            totalWeight += pair.Value;
+        }
 
-}
+        float randomValue = Random.Range(0f, totalWeight);
+        float cumulativeWeight = 0f;
+
+        foreach (var pair in spawnWeights)
+        {
+            cumulativeWeight += pair.Value;
+            if (randomValue <= cumulativeWeight)
+            {
+                return pair.Key;
+            }
+        }
+
+        return Prefabs[0]; //default prefab
+    }
+        private void AdjustRelativeFrequencies()
+    {
+        AdjustRelativeFrequency(bombPrefab, bombFrequency);
+        AdjustRelativeFrequency(leafPrefab, leafFrequency);
+        AdjustRelativeFrequency(woodPrefab, woodFrequency);
+    }
+    public void AdjustRelativeFrequency(GameObject prefab, float weight)
+    {
+        if (spawnWeights.ContainsKey(prefab))
+        {
+            spawnWeights[prefab] = weight;
+        }
+        else
+        {
+            spawnWeights.Add(prefab, weight);
+        }
+    }
 }

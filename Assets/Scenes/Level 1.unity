@@ -1830,11 +1830,14 @@ MonoBehaviour:
   - {fileID: 1952426920319878059, guid: 075b5c531b0ffdf4bb5a99efa785cc11, type: 3}
   - {fileID: 3072365866018847433, guid: 43908450b8eb0fa428c38b412e0557c1, type: 3}
   - {fileID: 7918699883191896643, guid: a49798a6679a4a943aca2efd394c43a1, type: 3}
-  spawnInterval: 0.5
+  initialSpawnInterval: 1
   spawnXRange: 6
-  mehrBombe: 10
-  mehrBlatt: 30
-  mehrHolz: 20
+  bombFrequency: 1
+  leafFrequency: 2
+  woodFrequency: 2
+  bombPrefab: {fileID: 1952426920319878059, guid: 075b5c531b0ffdf4bb5a99efa785cc11, type: 3}
+  leafPrefab: {fileID: 3072365866018847433, guid: 43908450b8eb0fa428c38b412e0557c1, type: 3}
+  woodPrefab: {fileID: 7918699883191896643, guid: a49798a6679a4a943aca2efd394c43a1, type: 3}
 --- !u!114 &1676916691
 MonoBehaviour:
   m_ObjectHideFlags: 0

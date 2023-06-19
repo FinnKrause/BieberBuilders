@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -8,18 +9,13 @@ public class ObjectSpawner : MonoBehaviour
 
     public GameObject[] Prefabs;
     public float spawnInterval;
-    public float spawnXRange = 10;
+    public float spawnXRange = 6;
 
     void Start()
     {
-        _spawnY = Camera.main.ScreenToWorldPoint(new Vector3(0f, Screen.height, 0f)).y;
-        spawnXRange = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0f, 0f)).x;
+        _spawnY = Camera.main.ScreenToWorldPoint(new Vector3(0f, Screen.height+20, 0f)).y;
+        //spawnXRange = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0f, 0f)).x;
         StartCoroutine(SpawnObjects());
-    }
-
-    void Update()
-    {
-
     }
 
     private IEnumerator SpawnObjects()
@@ -30,7 +26,8 @@ public class ObjectSpawner : MonoBehaviour
         {
             float spawnX = UnityEngine.Random.Range(-spawnXRange, spawnXRange);
             Vector2 spawnPosition = new Vector2(spawnX, _spawnY);
-            Instantiate(Prefabs[UnityEngine.Random.Range(0, Prefabs.Length)], spawnPosition, Quaternion.identity);
+            GameObject rbdObj = Prefabs[UnityEngine.Random.Range(0, Prefabs.Length)];
+            Instantiate(rbdObj, spawnPosition, Quaternion.identity);
             yield return new WaitForSeconds(spawnInterval);
         }
     }

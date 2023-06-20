@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6714276531436587492}
   - component: {fileID: 8684765243521607054}
   - component: {fileID: -669801787149111997}
+  - component: {fileID: 2437799729701371035}
   m_Layer: 0
   m_Name: bomb
   m_TagString: Untagged
@@ -99,9 +100,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 1
-  m_AngularDrag: 0.05
+  m_Mass: 0.0001
+  m_LinearDrag: 7
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -146,3 +147,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6973f3e7cd2eacc4796d7f166ee480cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2437799729701371035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952426920319878059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a5fbe746399bb14cb0a5edffd84f03f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxGeschwindigkeit: 4

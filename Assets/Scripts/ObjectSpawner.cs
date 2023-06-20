@@ -14,7 +14,7 @@ public class ObjectSpawner : MonoBehaviour
     public float woodFrequency;
     private float spawnInterval;
 
-    private Dictionary<GameObject, float> spawnWeights = new Dictionary<GameObject, float>();
+    private Dictionary<GameObject, float> spawnWeights = new Dictionary<GameObject, float>(); //jedem Prefeab könen mehrere Gewichte zugeordnet werden
 
     public GameObject bombPrefab;
     public GameObject leafPrefab;
@@ -24,7 +24,7 @@ public class ObjectSpawner : MonoBehaviour
     {
         _spawnY = Camera.main.ScreenToWorldPoint(new Vector3(0f, Screen.height + 20f, 0f)).y;
         spawnInterval = initialSpawnInterval;
-        AdjustRelativeFrequencies(); //method sets weights
+        AdjustRelativeFrequencies(); //method sets weights alle werden auf die public werte gesetzt
         StartCoroutine(SpawnObjects());
     }
 
@@ -38,24 +38,24 @@ public class ObjectSpawner : MonoBehaviour
             Vector2 spawnPosition = new Vector2(spawnX, _spawnY);
 
             GameObject selectedPrefab = SelectObject();
-            Instantiate(selectedPrefab, spawnPosition, Quaternion.identity);
+            Instantiate(selectedPrefab, spawnPosition, Quaternion.identity); //Prefab an ort, unrotiert
         }
     }
 
     private GameObject SelectObject()
     {
-        float totalWeight = 0f;
+        float totalWeight = 0f; //es wird geschaut wie viel priorität alle zusammen haben
         foreach (var pair in spawnWeights)
         {
             totalWeight += pair.Value;
         }
 
-        float randomValue = Random.Range(0f, totalWeight);
+        float randomValue = Random.Range(0f, totalWeight); //in diesem gesamtgewicht wird eine Zahl ausgewählt
         float cumulativeWeight = 0f;
 
         foreach (var pair in spawnWeights)
         {
-            cumulativeWeight += pair.Value;
+            cumulativeWeight += pair.Value; //Es wird geschaut welches gewicht das Random Value hat, der entsprechende Prefab wird gespawnt
             if (randomValue <= cumulativeWeight)
             {
                 return pair.Key;

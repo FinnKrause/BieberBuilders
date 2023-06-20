@@ -14,7 +14,7 @@ public class ObjectSpawner : MonoBehaviour
     public float woodFrequency;
     private float spawnInterval;
 
-    private Dictionary<GameObject, float> spawnWeights = new Dictionary<GameObject, float>(); //jedem Prefeab könen mehrere Gewichte zugeordnet werden
+    private Dictionary<GameObject, float> spawnWeights = new Dictionary<GameObject, float>(); //jedem Prefeab kï¿½nen mehrere Gewichte zugeordnet werden
 
     public GameObject bombPrefab;
     public GameObject leafPrefab;
@@ -44,13 +44,13 @@ public class ObjectSpawner : MonoBehaviour
 
     private GameObject SelectObject()
     {
-        float totalWeight = 0f; //es wird geschaut wie viel priorität alle zusammen haben
+        float totalWeight = 0f; //es wird geschaut wie viel prioritï¿½t alle zusammen haben
         foreach (var pair in spawnWeights)
         {
             totalWeight += pair.Value;
         }
 
-        float randomValue = Random.Range(0f, totalWeight); //in diesem gesamtgewicht wird eine Zahl ausgewählt
+        float randomValue = Random.Range(0f, totalWeight); //in diesem gesamtgewicht wird eine Zahl ausgewï¿½hlt
         float cumulativeWeight = 0f;
 
         foreach (var pair in spawnWeights)

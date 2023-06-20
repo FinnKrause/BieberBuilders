@@ -4,22 +4,21 @@ using UnityEngine;
 
 public class ConstantFalling : MonoBehaviour
 {
-    // lässt die Prefabs mit constanter geschwindigkeit statt beschleunigend fallen
+    // lï¿½sst die Prefabs mit constanter geschwindigkeit statt beschleunigend fallen
 
     // Problem : Masse Rigedbodys
-    public float maxGeschwindigkeit;
-    private float fallgeschwindigkeit;
+    public float fallSpeed;
     //private Vector2 position; //macht strudel
     void Start()
     {
-        fallgeschwindigkeit=0.1f * Random.Range(1f, maxGeschwindigkeit);
+        fallSpeed = Random.Range(1f, fallSpeed);
     }
 
     
     void Update()
     {
         //transform.position = position; //macht strudel
-        transform.Translate(Vector2.down * Time.deltaTime);
+        transform.Translate(Vector2.down * Time.deltaTime * fallSpeed);//Feature: Unequal speed leads to collisions
         //position = transform.position; //macht strudel
     }
 }

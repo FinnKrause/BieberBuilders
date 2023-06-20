@@ -430,6 +430,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7168843046136072598, guid: b50a70398ab72074e8a7088cd11ee215, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7168843046136072598, guid: b50a70398ab72074e8a7088cd11ee215, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7168843046136072598, guid: b50a70398ab72074e8a7088cd11ee215, type: 3}
       propertyPath: m_GravityScale
       value: 1
       objectReference: {fileID: 0}
@@ -1992,6 +2000,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1861363498 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4461010795752766692, guid: b50a70398ab72074e8a7088cd11ee215, type: 3}
+  m_PrefabInstance: {fileID: 184711399}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1861363499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861363498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2751521075fcb1447a25b925f6900f10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energiekostenDash: 0
+  "st\xE4rkeDash": 0.15
+  randRechts: 6.5
 --- !u!1 &1968146175
 GameObject:
   m_ObjectHideFlags: 0

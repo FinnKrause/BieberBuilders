@@ -1800,6 +1800,7 @@ GameObject:
   - component: {fileID: 1676916690}
   - component: {fileID: 1676916691}
   - component: {fileID: 1676916692}
+  - component: {fileID: 1676916693}
   m_Layer: 0
   m_Name: GameLogic
   m_TagString: Untagged
@@ -1871,6 +1872,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11fb3ed5b0738794f96467d4ff539f5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1676916693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676916687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20bc61747c096974f861cbdb32b9ae5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 5201660229096176241, guid: 59ef5160db346044a890848fcd3bb1cd, type: 3}
+  initialSpawnInterval: 1
+  spawnXRange: 6
+  spawnInterval: 0
+  nextItem: 0
+  wievieleItems: 0
 --- !u!1 &1692440405
 GameObject:
   m_ObjectHideFlags: 0

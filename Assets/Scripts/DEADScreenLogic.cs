@@ -23,7 +23,7 @@ public class DEADScreenLogic : MonoBehaviour
 
         _quitButton.onClick.AddListener(() =>
         {
-            UnityEngine.Debug.Log("Quit button pressed!");
+            SceneManager.LoadScene(sceneName: "Startscene");
         });
     }
 

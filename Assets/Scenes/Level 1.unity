@@ -1889,7 +1889,7 @@ MonoBehaviour:
   spawnXRange: 6
   spawnInterval: 0
   nextItem: 0
-  wievieleItems: 0
+  wievieleItems: 5
 --- !u!1 &1692440405
 GameObject:
   m_ObjectHideFlags: 0

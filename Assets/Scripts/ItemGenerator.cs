@@ -30,14 +30,14 @@ public class ItemGenerator : MonoBehaviour
             float spawnX = Random.Range(-spawnXRange, spawnXRange);
             Vector2 spawnPosition = new Vector2(spawnX, _spawnY);
 
-            setNextItemAuto();
             Instantiate(prefab, spawnPosition, Quaternion.identity); //Prefab an ort, unrotiert
         }
     }
 
-    private void setNextItemAuto()
+    public int gibNextItemAuto()
     {
         nextItem = Random.Range(0, wievieleItems);
+        return nextItem;
     }
 }
 

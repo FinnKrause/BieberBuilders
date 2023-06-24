@@ -64,7 +64,16 @@ public class BieberLogic : MonoBehaviour
             SceneManager.LoadScene(sceneName:"End");
         }
     }
+        public void DoubleSpeed()
+    {
+        movementSpeedAmplifier *= 2f;
+    }
 
+    public void Heal()
+    {
+        // Logic to heal the Bieber's health
+        // ...
+    }
 
     void OnCollisionEnter2D(Collision2D other)
     {

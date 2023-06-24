@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1188997469813174848}
   - component: {fileID: -3934324783765419198}
   - component: {fileID: -7191233352032460614}
+  - component: {fileID: 5689295897901626214}
   m_Layer: 0
   m_Name: Items
   m_TagString: Untagged
@@ -160,3 +161,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallSpeed: 5
+--- !u!114 &5689295897901626214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5201660229096176241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20bc61747c096974f861cbdb32b9ae5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  initialSpawnInterval: 1
+  spawnXRange: 6
+  spawnInterval: 0
+  nextItem: 0
+  numberOfItems: 2

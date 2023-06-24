@@ -23,9 +23,8 @@ public class ItemGenerator : MonoBehaviour
 
         // Initialize item effects
         itemEffects = new Dictionary<int, ItemEffect>();
-        itemEffects.Add(0, new ItemEffect("Effect 1"));
-        itemEffects.Add(1, new ItemEffect("Effect 2"));
-        itemEffects.Add(2, new ItemEffect("Effect 3"));
+        itemEffects.Add(0, new DoubleSpeedEffect());
+        itemEffects.Add(1, new HealEffect());
         // Add more items and their respective effects as needed
 
         SetNextItemAuto();
@@ -42,7 +41,7 @@ public class ItemGenerator : MonoBehaviour
             Vector2 spawnPosition = new Vector2(spawnX, spawnY);
 
             Instantiate(prefab, spawnPosition, Quaternion.identity);
-
+            ApplyItemEffect(nextItem, GetComponent<BieberLogic>());
             SetNextItemAuto();
         }
     }
@@ -50,15 +49,15 @@ public class ItemGenerator : MonoBehaviour
     private void SetNextItemAuto()
     {
         nextItem = Random.Range(0, numberOfItems);
-        ApplyItemEffect(nextItem);
+        ApplyItemEffect(nextItem, GetComponent<BieberLogic>());
     }
 
-    private void ApplyItemEffect(int itemNumber)
+    private void ApplyItemEffect(int itemNumber, BieberLogic bieber)
     {
         if (itemEffects.ContainsKey(itemNumber))
         {
             ItemEffect itemEffect = itemEffects[itemNumber];
-            // Apply the effect specific to the item number
+            itemEffect.ApplyEffect(bieber);
             Debug.Log("Applying item effect: " + itemEffect.EffectName);
         }
         else

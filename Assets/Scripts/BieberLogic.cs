@@ -68,11 +68,12 @@ public class BieberLogic : MonoBehaviour
     {
         movementSpeedAmplifier *= 2f;
     }
-
-    public void Heal()
+        public void Heal()
     {
-        // Logic to heal the Bieber's health
-        // ...
+        float addedHealth = 1f;
+        UIBar healthBar = GetComponent<UIBar>();
+        healthBar.add(addedHealth);
+        Debug.Log("Player healed for " + addedHealth + " health.");
     }
 
     void OnCollisionEnter2D(Collision2D other)

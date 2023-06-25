@@ -11,7 +11,6 @@ public class ItemGenerator : MonoBehaviour
     public float spawnXRange = 6f;
     public float spawnInterval;
 
-    public int nextItem;
     public int numberOfItems;
 
     private Dictionary<int, ItemEffect> itemEffects;
@@ -27,7 +26,6 @@ public class ItemGenerator : MonoBehaviour
         itemEffects.Add(1, new HealEffect());
         // Add more items and their respective effects as needed
 
-        SetNextItemAuto();
         StartCoroutine(SpawnObjects());
     }
 
@@ -40,24 +38,19 @@ public class ItemGenerator : MonoBehaviour
             float spawnX = Random.Range(-spawnXRange, spawnXRange);
             Vector2 spawnPosition = new Vector2(spawnX, spawnY);
 
-            Instantiate(prefab, spawnPosition, Quaternion.identity);
-            ApplyItemEffect(nextItem, GetComponent<BieberLogic>());
-            SetNextItemAuto();
+            GameObject spawnedObject = Instantiate(prefab, spawnPosition, Quaternion.identity);
+            ApplyItemEffect(spawnedObject);
         }
     }
 
-    private void SetNextItemAuto()
+    private void ApplyItemEffect(GameObject spawnedObject)
     {
-        nextItem = Random.Range(0, numberOfItems);
-        ApplyItemEffect(nextItem, GetComponent<BieberLogic>());
-    }
+        int itemNumber = Random.Range(0, numberOfItems);
 
-    private void ApplyItemEffect(int itemNumber, BieberLogic bieber)
-    {
         if (itemEffects.ContainsKey(itemNumber))
         {
             ItemEffect itemEffect = itemEffects[itemNumber];
-            itemEffect.ApplyEffect(bieber);
+            itemEffect.ApplyEffect(spawnedObject.GetComponent<BieberLogic>());
             Debug.Log("Applying item effect: " + itemEffect.EffectName);
         }
         else

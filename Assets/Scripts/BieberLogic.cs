@@ -14,7 +14,6 @@ public class BieberLogic : MonoBehaviour
     private UIBar _energyBar;
     private UIBar _woodPlanksBar;
 
-
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -33,7 +32,7 @@ public class BieberLogic : MonoBehaviour
         float movementSpeed = _energyBar.getCurrentValue() / 5 * movementSpeedAmplifier;
 
         UnityEngine.Debug.Log(transform.position.x);//Screen 909
-        if (transform.position.x < movementRangeRight && transform.position.x > -movementRangeLeft)
+        if (transform.position.x < movementRangeRight && transform.position.x > movementRangeLeft)
         {
             _rb.velocity = new Vector2(_movementDirectionX * movementSpeed, _rb.velocity.y);
         }

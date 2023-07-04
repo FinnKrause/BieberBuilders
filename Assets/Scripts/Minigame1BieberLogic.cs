@@ -41,5 +41,8 @@ public class Minigame1BieberLogic : MonoBehaviour
         {
             _rb.velocity = new Vector2(0, 0);
         }
+        if (Input.GetKeyDown ("space")){
+        _rb.AddForce(new Vector2(0, 10), ForceMode2D.Impulse);
+        }
     }
 }

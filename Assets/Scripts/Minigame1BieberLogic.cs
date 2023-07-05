@@ -8,6 +8,8 @@ public class Minigame1BieberLogic : MonoBehaviour
     public float movementRangeLeft;
     public float movementRangeRight;
     public float movementSpeed;
+    public float jump;
+    public bool isJumping;
 
     // Start is called before the first frame update
     void Start()
@@ -21,28 +23,42 @@ public class Minigame1BieberLogic : MonoBehaviour
     {
          float _movementDirectionX = Input.GetAxis("Horizontal");
 
-        if (_movementDirectionX == 0 && transform.position.x > movementRangeLeft)
+        // if (_movementDirectionX == 0 && transform.position.x > movementRangeLeft)
+        // {
+        //     _rb.velocity = new Vector2(-2, _rb.velocity.y);
+        // }
+        // else if (transform.position.x < movementRangeRight && transform.position.x > movementRangeLeft)
+        // {
+        //     _rb.velocity = new Vector2(_movementDirectionX * movementSpeed, _rb.velocity.y);
+        // }
+        // else if (transform.position.x >= movementRangeRight && _movementDirectionX < 0)
+        // {
+        //     _rb.velocity = new Vector2(_movementDirectionX * movementSpeed, _rb.velocity.y);
+        // }
+        // else if (transform.position.x <= movementRangeLeft && _movementDirectionX > 0)
+        // {
+        //     _rb.velocity = new Vector2(_movementDirectionX * movementSpeed, _rb.velocity.y);
+        // }
+        // else
+        // {
+        //     _rb.velocity = new Vector2(0, _rb.velocity.y);
+        // }
+        _rb.velocity = new Vector2(movementSpeed * _movementDirectionX, _rb.velocity.y);
+        
+        if (Input.GetKeyDown ("space") && isJumping == false)
         {
-            _rb.velocity = new Vector2(-2, _rb.velocity.y);
+        _rb.AddForce(new Vector2(_rb.velocity.x, jump));
         }
-        else if (transform.position.x < movementRangeRight && transform.position.x > movementRangeLeft)
+    }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
         {
-            _rb.velocity = new Vector2(_movementDirectionX * movementSpeed, _rb.velocity.y);
+            isJumping = false;
         }
-        else if (transform.position.x >= movementRangeRight && _movementDirectionX < 0)
-        {
-            _rb.velocity = new Vector2(_movementDirectionX * movementSpeed, _rb.velocity.y);
-        }
-        else if (transform.position.x <= movementRangeLeft && _movementDirectionX > 0)
-        {
-            _rb.velocity = new Vector2(_movementDirectionX * movementSpeed, _rb.velocity.y);
-        }
-        else
-        {
-            _rb.velocity = new Vector2(0, 0);
-        }
-        if (Input.GetKeyDown ("space")){
-        _rb.AddForce(new Vector2(0, 10), ForceMode2D.Impulse);
-        }
+    }
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        isJumping = true;
     }
 }

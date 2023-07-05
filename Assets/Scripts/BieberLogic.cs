@@ -40,7 +40,7 @@ public class BieberLogic : MonoBehaviour
         {
             _rb.velocity = new Vector2(_movementDirectionX * movementSpeed, _rb.velocity.y);
         }
-        else if (transform.position.x <= -movementRangeLeft && _movementDirectionX > 0)
+        else if (transform.position.x <= movementRangeLeft && _movementDirectionX > 0)
         {
             _rb.velocity = new Vector2(_movementDirectionX * movementSpeed, _rb.velocity.y);
         }

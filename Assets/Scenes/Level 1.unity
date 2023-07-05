@@ -439,7 +439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4778015763217428671, guid: b50a70398ab72074e8a7088cd11ee215, type: 3}
       propertyPath: movementRangeLeft
-      value: 5.7
+      value: -5.7
       objectReference: {fileID: 0}
     - target: {fileID: 4778015763217428671, guid: b50a70398ab72074e8a7088cd11ee215, type: 3}
       propertyPath: movementRangeRight

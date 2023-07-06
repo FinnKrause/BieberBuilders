@@ -447,7 +447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4778015763217428671, guid: b50a70398ab72074e8a7088cd11ee215, type: 3}
       propertyPath: movementSpeedAmplifier
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7168843046136072598, guid: b50a70398ab72074e8a7088cd11ee215, type: 3}
       propertyPath: m_LinearDrag
@@ -2072,9 +2072,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2751521075fcb1447a25b925f6900f10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashEnergyCost: 0
-  dashStrength: 0.1
+  dashEnergyCost: 1
+  dashStrength: 3
   rightBoundary: 6.1
+  extraDashes: 0
+  cooldownDuration: 3
 --- !u!1 &1968146175
 GameObject:
   m_ObjectHideFlags: 0

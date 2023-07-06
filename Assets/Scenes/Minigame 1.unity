@@ -578,7 +578,7 @@ MonoBehaviour:
   movementRangeLeft: -8.6
   movementRangeRight: 0.1
   movementSpeed: 3
-  jump: 500
+  jump: 450
   isJumping: 0
 --- !u!50 &1360146551
 Rigidbody2D:

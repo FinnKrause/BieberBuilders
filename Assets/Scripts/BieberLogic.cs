@@ -63,7 +63,16 @@ public class BieberLogic : MonoBehaviour
             SceneManager.LoadScene(sceneName:"End");
         }
     }
-
+        public void DoubleSpeed()
+    {
+        movementSpeedAmplifier *= 2f;
+    }
+        public void Heal()
+    {
+        float addedHealth = 1f;
+        UIBar healthBar = GetComponent<UIBar>();
+        healthBar.add(addedHealth);
+    }
 
     void OnCollisionEnter2D(Collision2D other)
     {

@@ -14,7 +14,11 @@ GameObject:
   - component: {fileID: 1188997469813174848}
   - component: {fileID: -3934324783765419198}
   - component: {fileID: -7191233352032460614}
+<<<<<<< HEAD
   - component: {fileID: 8931099149932724709}
+=======
+  - component: {fileID: 5689295897901626214}
+>>>>>>> origin/ItemEffects
   m_Layer: 0
   m_Name: Items
   m_TagString: Untagged
@@ -161,7 +165,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallSpeed: 5
+<<<<<<< HEAD
 --- !u!114 &8931099149932724709
+=======
+--- !u!114 &5689295897901626214
+>>>>>>> origin/ItemEffects
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -170,6 +178,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 5201660229096176241}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: beecb3288bbcbe341bcbfc8348fca76e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+  m_Script: {fileID: 11500000, guid: 20bc61747c096974f861cbdb32b9ae5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  initialSpawnInterval: 1
+  spawnXRange: 6
+  spawnInterval: 0
+  nextItem: 0
+  numberOfItems: 2
+>>>>>>> origin/ItemEffects

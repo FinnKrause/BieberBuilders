@@ -73,7 +73,6 @@ public class BieberLogic : MonoBehaviour
         float addedHealth = 1f;
         UIBar healthBar = GetComponent<UIBar>();
         healthBar.add(addedHealth);
-        Debug.Log("Player healed for " + addedHealth + " health.");
     }
 
     void OnCollisionEnter2D(Collision2D other)

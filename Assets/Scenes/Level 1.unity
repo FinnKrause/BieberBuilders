@@ -1888,7 +1888,6 @@ MonoBehaviour:
   initialSpawnInterval: 1
   spawnXRange: 6
   spawnInterval: 0
-  nextItem: 0
   numberOfItems: 2
 --- !u!1 &1692440405
 GameObject:
@@ -2036,8 +2035,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2751521075fcb1447a25b925f6900f10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashEnergyCost: 0
-  dashStrength: 0.1
+  dashEnergyCost: 1
+  dashStrength: 0.5
   rightBoundary: 6.1
 --- !u!1 &1968146175
 GameObject:

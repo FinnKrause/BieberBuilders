@@ -39,11 +39,22 @@ public class ItemGenerator : MonoBehaviour
             Vector2 spawnPosition = new Vector2(spawnX, spawnY);
 
             GameObject spawnedObject = Instantiate(prefab, spawnPosition, Quaternion.identity);
-            ApplyItemEffect(spawnedObject);
+            //ApplyRandomItemEffect(spawnedObject);
         }
     }
 
     private void ApplyItemEffect(GameObject spawnedObject)
+    {
+        ItemEffect[] itemEffects = spawnedObject.GetComponents<ItemEffect>();
+
+        foreach (ItemEffect itemEffect in itemEffects)
+        {
+            itemEffect.ApplyEffect(spawnedObject.GetComponent<BieberLogic>());
+            Debug.Log("Applying item effect: " + itemEffect.EffectName);
+        }
+    }
+
+    private void ApplyRandomItemEffect(GameObject spawnedObject)
     {
         int itemNumber = Random.Range(0, numberOfItems);
 
@@ -59,6 +70,3 @@ public class ItemGenerator : MonoBehaviour
         }
     }
 }
-
-/*every item effect is represented by the ItemEffect class that has a property for the effect name
-add methods for every new effect*/

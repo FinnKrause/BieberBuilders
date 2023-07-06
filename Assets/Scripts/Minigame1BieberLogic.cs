@@ -23,27 +23,27 @@ public class Minigame1BieberLogic : MonoBehaviour
     {
          float _movementDirectionX = Input.GetAxis("Horizontal");
 
-        // if (_movementDirectionX == 0 && transform.position.x > movementRangeLeft)
-        // {
-        //     _rb.velocity = new Vector2(-2, _rb.velocity.y);
-        // }
-        // else if (transform.position.x < movementRangeRight && transform.position.x > movementRangeLeft)
-        // {
-        //     _rb.velocity = new Vector2(_movementDirectionX * movementSpeed, _rb.velocity.y);
-        // }
-        // else if (transform.position.x >= movementRangeRight && _movementDirectionX < 0)
-        // {
-        //     _rb.velocity = new Vector2(_movementDirectionX * movementSpeed, _rb.velocity.y);
-        // }
-        // else if (transform.position.x <= movementRangeLeft && _movementDirectionX > 0)
-        // {
-        //     _rb.velocity = new Vector2(_movementDirectionX * movementSpeed, _rb.velocity.y);
-        // }
-        // else
-        // {
-        //     _rb.velocity = new Vector2(0, _rb.velocity.y);
-        // }
-        _rb.velocity = new Vector2(movementSpeed * _movementDirectionX, _rb.velocity.y);
+        if (_movementDirectionX == 0 && transform.position.x > movementRangeLeft)
+        {
+            _rb.velocity = new Vector2(-2, _rb.velocity.y);
+        }
+        else if (transform.position.x < movementRangeRight && transform.position.x > movementRangeLeft)
+        {
+            _rb.velocity = new Vector2(_movementDirectionX * movementSpeed, _rb.velocity.y);
+        }
+        else if (transform.position.x >= movementRangeRight && _movementDirectionX < 0)
+        {
+            _rb.velocity = new Vector2(_movementDirectionX * movementSpeed, _rb.velocity.y);
+        }
+        else if (transform.position.x <= movementRangeLeft && _movementDirectionX > 0)
+        {
+            _rb.velocity = new Vector2(_movementDirectionX * movementSpeed, _rb.velocity.y);
+        }
+        else
+        {
+            _rb.velocity = new Vector2(0, _rb.velocity.y);
+        }
+        // _rb.velocity = new Vector2(movementSpeed * _movementDirectionX, _rb.velocity.y);
         
         if (Input.GetKeyDown ("space") && isJumping == false)
         {

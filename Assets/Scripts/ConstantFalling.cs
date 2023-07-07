@@ -20,5 +20,6 @@ public class ConstantFalling : MonoBehaviour
         //transform.position = position; //macht strudel
         transform.Translate(Vector2.down * Time.deltaTime * fallSpeed);//Feature: Unequal speed leads to collisions
         //position = transform.position; //macht strudel
+        transform.rotation = Quaternion.Euler(Vector3.zero); //stops from rotating when colliding with something
     }
 }

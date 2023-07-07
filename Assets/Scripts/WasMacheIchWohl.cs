@@ -8,8 +8,8 @@ public class WasMacheIchWohl : MonoBehaviour
     public int effekt;
     void Start()
     {
-        itemgenerator = FindObjectOfType<ItemGenerator>();
-        effekt = itemgenerator.gibNextItemAuto();
+        //itemgenerator = FindObjectOfType<ItemGenerator>();
+        //effekt = itemgenerator.gibNextItemAuto();
     }
 
     void Update()

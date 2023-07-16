@@ -9,6 +9,12 @@ TagManager:
   - EnergyBar
   - Ground
   - Obstacle
+  - obstacle(Clone)
+  - ast1(Clone)
+  - ast2(Clone)
+  - ast3(Clone)
+  - ast4(Clone)
+  - ast5(Clone)
   layers:
   - Default
   - TransparentFX
@@ -16,7 +22,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Minigame1BieberLogic : MonoBehaviour
 {
@@ -12,17 +13,17 @@ public class Minigame1BieberLogic : MonoBehaviour
     public float jump;
     public bool isJumping;
 
-    private bool _collision;    // state of collistion the Bieber and Obstacle
     private float _width;       // Bieber width
     private float _leftmost;    // most possible position in the left of the Bieber
+    private UIBar _woodPlanksBar;
 
     // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _collision = false;
         _width = GetComponent<SpriteRenderer>().bounds.size.x;
         _leftmost = Camera.main.ScreenToWorldPoint(Vector3.zero).x - _width / 3.0f;
+        _woodPlanksBar = GameObject.Find("WoodPlanksBar").GetComponent<UIBar>();
     }
 
     // Update is called once per frame
@@ -36,11 +37,7 @@ public class Minigame1BieberLogic : MonoBehaviour
             return;
         }
         float _movementDirectionX = Input.GetAxis("Horizontal");
-        if (_collision == true)
-        {
-            _rb.velocity = new Vector2(-2, _rb.velocity.y);            
-        }
-        else if (_movementDirectionX == 0 && transform.position.x > movementRangeLeft)
+        if (_movementDirectionX == 0 && transform.position.x > movementRangeLeft)
         {
             _rb.velocity = new Vector2(-2, _rb.velocity.y);
         }
@@ -65,16 +62,24 @@ public class Minigame1BieberLogic : MonoBehaviour
         {
             _rb.AddForce(new Vector2(_rb.velocity.x, jump));
         }
+        if(_woodPlanksBar.getCurrentValue() == _woodPlanksBar.maxValue)
+        {
+            SceneManager.LoadScene(sceneName:"Level 2");
+            return;
+        }        
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Ground"))
+        string _tag = other.gameObject.tag;
+        switch (_tag)
         {
+        case "Ground":
             isJumping = false;
-        }
-        else if (other.gameObject.CompareTag("obstacle(Clone)"))
-        {   // the Bieber collided with the Obstacle
-            _collision = true;
+            break;
+        case "Ast":
+            _woodPlanksBar.add(1f);
+            Destroy(other.gameObject);
+            break;
         }
     }
     private void OnCollisionExit2D(Collision2D other)

@@ -8,6 +8,7 @@ TagManager:
   - HealthBar
   - EnergyBar
   - Ground
+  - Obstacle
   layers:
   - Default
   - TransparentFX

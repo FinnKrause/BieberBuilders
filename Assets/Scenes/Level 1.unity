@@ -1924,12 +1924,7 @@ MonoBehaviour:
   initialSpawnInterval: 1
   spawnXRange: 6
   spawnInterval: 0
-<<<<<<< HEAD
-  nextItem: 0
-  wievieleItems: 5
-=======
   numberOfItems: 2
->>>>>>> origin/ItemEffects
 --- !u!1 &1692440405
 GameObject:
   m_ObjectHideFlags: 0
@@ -2077,11 +2072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashEnergyCost: 1
-<<<<<<< HEAD
-  dashStrength: 3
-=======
   dashStrength: 0.5
->>>>>>> origin/ItemEffects
   rightBoundary: 6.1
   extraDashes: 0
   cooldownDuration: 3
